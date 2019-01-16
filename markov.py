@@ -50,19 +50,27 @@ def make_chains(text_string):
 
     chains = {}
 
-    i = 0
 
     for i in range(len(words) - 2):
         pairs = (words[i], words[i + 1]) # pairs are made into a tuple
         value = words[i+2]
-        print(pairs)
-        print(value)
+        #print(pairs)
+        #print(value)
 
+        # check if the tuple exist in chains. 
+        # if not exist, then create an empty list and append the next word 
+        # now append the key value pair into the dictionary chains
 
+        # elif does exist, append the new word into the existing list 
 
-        # for pairs in words:
-        #     chains[pairs] = chains.get(value) # list of possible next words
+       
+        if pairs not in chains:
+            chains[pairs] = []
+            chains[pairs].append(value) # by doing this, I've already added an entry to the dict
+           
 
+        elif pairs in chains:
+            chains[pairs].append(value)
 
     print(chains)
 
